@@ -10,14 +10,22 @@ import {
     SearchArea,
     SearchInput,
 
+    DefaultScrollHeader,
+    DefaultScrollTitle,
+    DefaultScrollButton,
+
     TrendingComicsArea,
-    TrendingComicsHeader,
-    TrendingComicsTitle,
-    TrendingComicsButton,
     TrendingComicsItem,
     TrendingComicsItemImg,
     TrendingComicsItemName,
-    TrendingComicsItemAuthor
+    TrendingComicsItemAuthor,
+
+    AuthorArea,
+    DivLineAbsolute,
+    AuthorItem,
+    AuthorItemImgContainer,
+    AuthorItemImg,
+    AuthorItemName
 } from './styles';
 import { ScrollView } from 'react-native';
 
@@ -31,6 +39,15 @@ const trendingComicsArray = [
     {id: 7, img: require('../../assets/img/death-note.jpg'), title: 'Death Note', author: 'Parang'},
 ];
 
+const topAuthors = [
+    {id: 1, img: require('../../assets/img/author1.png'), name: 'Key'},
+    {id: 2, img: require('../../assets/img/author2.jpg'), name: 'Lucy'},
+    {id: 3, img: require('../../assets/img/author3.jpg'), name: 'Shrimp'},
+    {id: 4, img: require('../../assets/img/author4.png'), name: 'Masashi'},
+    {id: 5, img: require('../../assets/img/author5.jpg'), name: 'Parang'},
+    {id: 6, img: require('../../assets/img/author6.jpg'), name: 'Bvoy'},
+]
+
 export default () => {
     return(
         <HomeContainer>
@@ -41,13 +58,13 @@ export default () => {
             </SearchArea>
 
             <TrendingComicsArea>
-                <TrendingComicsHeader>
-                    <TrendingComicsTitle>Trending Comics</TrendingComicsTitle>
+                <DefaultScrollHeader>
+                    <DefaultScrollTitle>Trending Comics</DefaultScrollTitle>
 
-                    <TrendingComicsButton>
+                    <DefaultScrollButton>
                         <MoreIcon fill="#666" width={22} height={18} />
-                    </TrendingComicsButton>
-                </TrendingComicsHeader>
+                    </DefaultScrollButton>
+                </DefaultScrollHeader>
                 
                 <ScrollView contentContainerStyle={{paddingHorizontal: 10}} horizontal={true}>
                     {trendingComicsArray.map((item, k) => (
@@ -59,6 +76,41 @@ export default () => {
                     ))}
                 </ScrollView>
             </TrendingComicsArea>
+
+            <AuthorArea>
+                <DivLineAbsolute />
+
+                <DefaultScrollHeader>
+                    <DefaultScrollTitle>Top Author</DefaultScrollTitle>
+
+                    <DefaultScrollButton>
+                        <MoreIcon fill="#666" width={22} height={18} />
+                    </DefaultScrollButton>
+                </DefaultScrollHeader>
+
+                <ScrollView contentContainerStyle={{paddingHorizontal: 10}} horizontal={true}>
+                    {topAuthors.map((item, k) => (
+                        <AuthorItem key={k}>
+                            <AuthorItemImgContainer
+                                style={{
+                                    shadowColor: "#000",
+                                    shadowOffset: {
+                                        width: 0,
+                                        height: 3,
+                                    },
+                                    shadowOpacity: 0.27,
+                                    shadowRadius: 4.65,
+                                    elevation: 6
+                                }}
+                            >
+                                <AuthorItemImg source={item.img} />
+                            </AuthorItemImgContainer>
+
+                            <AuthorItemName numberOfLines={1}>{item.name}</AuthorItemName>
+                        </AuthorItem>
+                    ))}
+                </ScrollView>
+            </AuthorArea>
 
         </HomeContainer>
     )
