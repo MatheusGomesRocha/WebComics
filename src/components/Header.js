@@ -1,32 +1,84 @@
 import React from 'react';
 import styled from 'styled-components/native';
 
-import MenuGridIcon from '../assets/svg/menu-grid.svg';
+import MenuSquareIcon from '../assets/svg/menu-square.svg';
+import { white, defaultColor, gray100, background } from '../globals';
 
 const Header = styled.View`
-    background: #fff;
+    background: ${white};
     flex-direction: row;
+    align-items: center;
+    height: 96px;
+    padding: 0 20px;
 `;
 
-const UserImgContainer = styled.View``;
+const UserImgContainer = styled.View`
+    background: ${white};
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    width: 54px;
+    height: 54px;
+`;
 const UserImg = styled.Image`
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
+    border-radius: 30px;
 `;
-const UserBadge = styled.View``;
-const UserBadgeText = styled.Text``;
+const UserBadge = styled.View`
+    background: ${defaultColor};
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: -5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+`;
+const UserBadgeText = styled.Text`
+    color: ${white};
+    font-size: 10px;
+`;
 
-const Column = styled.View``;
-const ColumnText = styled.Text``;
-const UserName = styled.Text``;
+const Column = styled.View`
+    margin-left: 15px;
+`;
+const ColumnText = styled.Text`
+    color: ${gray100};
+    font-size: 15px;
+`;
+const UserName = styled.Text`
+    font-weight: bold;
+    font-size: 18px;
+`;
 
-const Button = styled.TouchableOpacity``;
+const Button = styled.TouchableOpacity`
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 30px;
+    border: 1px solid ${background};
+    margin-left: auto;
+`;
 
 
 export default () => {
     return(
         <Header>
-            <UserImgContainer>
+            <UserImgContainer 
+                style={{
+                    shadowColor: "#000",
+                    shadowOffset: {
+                        width: 0,
+                        height: 3,
+                    },
+                    shadowOpacity: 0.27,
+                    shadowRadius: 4.65,
+                    elevation: 6
+                }}
+            >
                 <UserImg source={require('../assets/img/user.jpeg')} />
                 <UserBadge>
                     <UserBadgeText>5</UserBadgeText>
@@ -39,7 +91,7 @@ export default () => {
             </Column>    
 
             <Button>
-                <MenuGridIcon fill="#000" width={20} height={20} />
+                <MenuSquareIcon fill="#000" width={22} height={22} />
             </Button>     
         </Header>
     )
