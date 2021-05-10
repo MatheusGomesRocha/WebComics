@@ -52,67 +52,68 @@ const topAuthors = [
 export default () => {
     return(
         <HomeContainer>
-            <SearchArea>
-                <SearchIcon fill="#000" width={22} height={18} />
-                <SearchInput placeholderTextColor="#666" placeholder="Search Comic..." />
-                <AdjustIcon fill="#000" width={22} height={18} />
-            </SearchArea>
+            <ScrollView>
+                <SearchArea>
+                    <SearchIcon fill="#000" width={22} height={18} />
+                    <SearchInput placeholderTextColor="#666" placeholder="Search Comic..." />
+                    <AdjustIcon fill="#000" width={22} height={18} />
+                </SearchArea>
 
-            <TrendingComicsArea>
-                <DefaultScrollHeader>
-                    <DefaultScrollTitle>Trending Comics</DefaultScrollTitle>
+                <TrendingComicsArea>
+                    <DefaultScrollHeader>
+                        <DefaultScrollTitle>Trending Comics</DefaultScrollTitle>
 
-                    <DefaultScrollButton>
-                        <MoreIcon fill="#666" width={22} height={18} />
-                    </DefaultScrollButton>
-                </DefaultScrollHeader>
-                
-                <ScrollView contentContainerStyle={{paddingHorizontal: 10}} horizontal={true}>
-                    {trendingComicsArray.map((item, k) => (
-                        <TrendingComicsItem key={k}>
-                            <TrendingComicsItemImg source={item.img} />
-                            <TrendingComicsItemName numberOfLines={1}>{item.title}</TrendingComicsItemName>
-                            <TrendingComicsItemAuthor numberOfLines={1}>by {item.author}</TrendingComicsItemAuthor>
-                        </TrendingComicsItem>
-                    ))}
-                </ScrollView>
-            </TrendingComicsArea>
+                        <DefaultScrollButton>
+                            <MoreIcon fill="#666" width={22} height={18} />
+                        </DefaultScrollButton>
+                    </DefaultScrollHeader>
+                    
+                    <ScrollView contentContainerStyle={{paddingHorizontal: 10}} horizontal={true}>
+                        {trendingComicsArray.map((item, k) => (
+                            <TrendingComicsItem key={k}>
+                                <TrendingComicsItemImg source={item.img} />
+                                <TrendingComicsItemName numberOfLines={1}>{item.title}</TrendingComicsItemName>
+                                <TrendingComicsItemAuthor numberOfLines={1}>by {item.author}</TrendingComicsItemAuthor>
+                            </TrendingComicsItem>
+                        ))}
+                    </ScrollView>
+                </TrendingComicsArea>
 
-            <AuthorArea>
-                <DivLineAbsolute />
+                <AuthorArea>
+                    <DefaultScrollHeader>
+                        <DefaultScrollTitle>Top Author</DefaultScrollTitle>
 
-                <DefaultScrollHeader>
-                    <DefaultScrollTitle>Top Author</DefaultScrollTitle>
+                        <DefaultScrollButton>
+                            <MoreIcon fill="#666" width={22} height={18} />
+                        </DefaultScrollButton>
+                    </DefaultScrollHeader>
 
-                    <DefaultScrollButton>
-                        <MoreIcon fill="#666" width={22} height={18} />
-                    </DefaultScrollButton>
-                </DefaultScrollHeader>
+                    <ScrollView contentContainerStyle={{paddingHorizontal: 10}} horizontal={true}>
+                        {topAuthors.map((item, k) => (
+                            <AuthorItem key={k}>
+                                <AuthorItemImgContainer
+                                    style={{
+                                        shadowColor: "#000",
+                                        shadowOffset: {
+                                            width: 0,
+                                            height: 3,
+                                        },
+                                        shadowOpacity: 0.27,
+                                        shadowRadius: 4.65,
+                                        elevation: 6
+                                    }}
+                                >
+                                    <AuthorItemImg source={item.img} />
+                                </AuthorItemImgContainer>
 
-                <ScrollView contentContainerStyle={{paddingHorizontal: 10}} horizontal={true}>
-                    {topAuthors.map((item, k) => (
-                        <AuthorItem key={k}>
-                            <AuthorItemImgContainer
-                                style={{
-                                    shadowColor: "#000",
-                                    shadowOffset: {
-                                        width: 0,
-                                        height: 3,
-                                    },
-                                    shadowOpacity: 0.27,
-                                    shadowRadius: 4.65,
-                                    elevation: 6
-                                }}
-                            >
-                                <AuthorItemImg source={item.img} />
-                            </AuthorItemImgContainer>
+                                <AuthorItemName numberOfLines={1}>{item.name}</AuthorItemName>
+                            </AuthorItem>
+                        ))}
+                    </ScrollView>
+                </AuthorArea>
 
-                            <AuthorItemName numberOfLines={1}>{item.name}</AuthorItemName>
-                        </AuthorItem>
-                    ))}
-                </ScrollView>
-            </AuthorArea>
-
+            </ScrollView>
+            
             <ContinueReading />
         </HomeContainer>
     )

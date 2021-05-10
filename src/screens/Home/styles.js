@@ -44,14 +44,14 @@ export const TrendingComicsItem = styled.TouchableOpacity`
 `;
 export const TrendingComicsItemImg = styled.Image`
     width: 150px;
-    height: 200px;
+    height: 180px;
     border-radius: 20px;
 `;
 export const TrendingComicsItemName = styled.Text`
     font-weight: bold;
     margin-top: 5px;
     font-size: 16px;
-    width: 150px;
+    width: 120px;
 `;
 export const TrendingComicsItemAuthor = styled.Text`
     color: ${gray500};
@@ -60,14 +60,7 @@ export const TrendingComicsItemAuthor = styled.Text`
 
 
 export const AuthorArea = styled.View`
-    margin-top: 30px;
     padding-top: 50px;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-    border-top-width: 1px;
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-color: #efefef;
 `;
 export const DivLineAbsolute = styled.View`
     background: ${gray100};

@@ -1,4 +1,4 @@
-export const defaultColor = '#D63F37';
+export const defaultColor = '#ff5e62';
 
 export const black = '#181516';
 
