@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 
 import MenuSquareIcon from '../assets/svg/menu-square.svg';
-import { white, defaultColor, gray100, background } from '../globals';
+import { white, defaultColor, gray100, background, gray500 } from '../globals';
 
 const Header = styled.View`
     background: ${white};
@@ -46,6 +46,7 @@ const Column = styled.View`
 `;
 const ColumnText = styled.Text`
     color: ${gray100};
+    font-weight: bold;
     font-size: 15px;
 `;
 const UserName = styled.Text`
