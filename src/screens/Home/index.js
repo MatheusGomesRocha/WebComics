@@ -1,8 +1,10 @@
 import React from 'react';
+import { ScrollView } from 'react-native';
 
 import SearchIcon from '../../assets/svg/search.svg';
 import AdjustIcon from '../../assets/svg/adjust.svg';
 import MoreIcon from '../../assets/svg/more.svg';
+import ContinueReading from '../../components/ContinueReading';
 
 import {
     HomeContainer,
@@ -27,7 +29,6 @@ import {
     AuthorItemImg,
     AuthorItemName
 } from './styles';
-import { ScrollView } from 'react-native';
 
 const trendingComicsArray = [
     {id: 1, img: require('../../assets/img/attack-titan.jpg'), title: 'Attack On Titan', author: 'Lucy'},
@@ -112,6 +113,7 @@ export default () => {
                 </ScrollView>
             </AuthorArea>
 
+            <ContinueReading />
         </HomeContainer>
     )
 }
