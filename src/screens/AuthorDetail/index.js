@@ -1,7 +1,9 @@
 import React from 'react';
 import { useRoute } from '@react-navigation/native';
+import { ScrollView } from 'react-native';
 
 import StarIcon from '../../assets/svg/star.svg';
+import MoreIcon from '../../assets/svg/more.svg';
 
 import {
     AuthorDetailContainer,
@@ -21,8 +23,24 @@ import {
     InfoValue,
     InfoValueFor,
     InfoFollowButton,
-    InfoFollowButtonText
+    InfoFollowButtonText,
+
+    ComicArea,
+    ComicHeader,
+    ComicHeaderTitle,
+    ComicArrayArea,
+    ComicItem,
+    ComicItemImg,
+    ComicItemName
 } from './styles';
+
+const authorComics = [
+    {id: 1, img: require('../../assets/img/your-name.jpg'), name: 'Your Name'},
+    {id: 2, img: require('../../assets/img/vinland-saga.jpg'), name: 'Vinland Saga'},
+    {id: 3, img: require('../../assets/img/tower-of-god.jpg'), name: 'Tower Of God'},
+    {id: 4, img: require('../../assets/img/solo-leving.jpg'), name: 'Solo Leving'},
+    {id: 5, img: require('../../assets/img/re-zero.jpg'), name: 'Re:zero'},
+];
 
 export default () => {
     const route = useRoute();
@@ -66,23 +84,42 @@ export default () => {
 
     return(
         <AuthorDetailContainer>
-            <HeaderComponent />
+            <ScrollView>
+                <HeaderComponent />
 
-            <InfoArea>
-                <InfoColumn>
-                    <InfoValue>14</InfoValue>
-                    <InfoValueFor>Book</InfoValueFor>
-                </InfoColumn>
+                <InfoArea>
+                    <InfoColumn>
+                        <InfoValue>14</InfoValue>
+                        <InfoValueFor>Book</InfoValueFor>
+                    </InfoColumn>
 
-                <InfoColumn>
-                    <InfoValue>1.147</InfoValue>
-                    <InfoValueFor>Followers</InfoValueFor>
-                </InfoColumn>
+                    <InfoColumn>
+                        <InfoValue>1.147</InfoValue>
+                        <InfoValueFor>Followers</InfoValueFor>
+                    </InfoColumn>
 
-                <InfoFollowButton>
-                    <InfoFollowButtonText>Follow</InfoFollowButtonText>
-                </InfoFollowButton>
-            </InfoArea>
+                    <InfoFollowButton>
+                        <InfoFollowButtonText>Follow</InfoFollowButtonText>
+                    </InfoFollowButton>
+                </InfoArea>
+
+                <ComicArea>
+                    <ComicHeader>
+                        <ComicHeaderTitle>Comic</ComicHeaderTitle>
+                        <MoreIcon fill="#666" width={22} height={18} />
+                    </ComicHeader>
+
+                    <ComicArrayArea>
+                        {authorComics.map((item, k) => (
+                            <ComicItem key={k}>
+                                <ComicItemImg source={item.img} />
+                                <ComicItemName>{item.name}</ComicItemName>
+                            </ComicItem>
+                        ))}
+                    </ComicArrayArea>
+
+                </ComicArea>
+            </ScrollView>
         </AuthorDetailContainer>
     )
 }

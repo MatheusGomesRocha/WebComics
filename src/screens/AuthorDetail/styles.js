@@ -75,11 +75,43 @@ export const InfoFollowButton = styled.TouchableOpacity`
     align-items: center;
     justify-content: center;
     border-radius: 50px;
-    margin-left: auto;
     width: 45%;
     height: 54px;
+    margin-left: auto;
 `;
 export const InfoFollowButtonText = styled.Text`
     color: ${white};
     font-size: 18px;
+`;
+
+
+export const ComicArea = styled.View`
+    margin-top: 50px;
+`;
+export const ComicHeader = styled.View`
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+`;
+export const ComicHeaderTitle = styled.Text`
+    font-size: 16px;
+`;
+export const ComicArrayArea = styled.View`
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+`;
+export const ComicItem = styled.TouchableOpacity`
+    width: 180px;
+    margin: 15px 0;
+`;
+export const ComicItemImg = styled.Image`
+    height: 250px;
+    width: 180px;
+    border-radius: 20px;
+`;
+export const ComicItemName = styled.Text`
+    font-size: 18px;
+    margin-top: 5px;
 `;
