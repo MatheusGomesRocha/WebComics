@@ -27,14 +27,25 @@ export default () => {
             <AuthorHeader>
 
                 <AuthorHeaderTop>
-                    <AuthorImgContainer>
+                    <AuthorImgContainer
+                        style={{
+                            shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 3,
+                            },
+                            shadowOpacity: 0.27,
+                            shadowRadius: 4.65,
+                            elevation: 6
+                        }}
+                    >
                         <AuthorImg source={img} />
                     </AuthorImgContainer>
 
                     <AuthorColumn>
                         <AuthorName>{name}</AuthorName>
                         <AuthorRating>
-                            <StarIcon fill="yellow" width={22} height={18} />
+                            <StarIcon fill="#FFD700" width={22} height={18} />
                             <AuthorRatingText>4.4 / 5</AuthorRatingText>
                         </AuthorRating>
                     </AuthorColumn>
