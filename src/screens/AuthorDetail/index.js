@@ -1,6 +1,6 @@
-import React from 'react';
-import { useRoute } from '@react-navigation/native';
-import { ScrollView } from 'react-native';
+import React, { useLayoutEffect } from 'react';
+import { useRoute, useNavigation } from '@react-navigation/native';
+import { ScrollView, TouchableOpacity } from 'react-native';
 
 import StarIcon from '../../assets/svg/star.svg';
 import MoreIcon from '../../assets/svg/more.svg';
@@ -44,8 +44,19 @@ const authorComics = [
 
 export default () => {
     const route = useRoute();
+    const navigation = useNavigation();
 
     const {img, name} = route.params;
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+          headerRight: () => (
+            <TouchableOpacity style={{marginRight: 15}}>
+                <MoreIcon fill="#666" width={22} height={18} />
+            </TouchableOpacity>
+          ),
+        });
+      }, [navigation]);
 
     const HeaderComponent = () => {
         return(
@@ -106,7 +117,9 @@ export default () => {
                 <ComicArea>
                     <ComicHeader>
                         <ComicHeaderTitle>Comic</ComicHeaderTitle>
-                        <MoreIcon fill="#666" width={22} height={18} />
+                        <TouchableOpacity>
+                            <MoreIcon fill="#666" width={22} height={18} />
+                        </TouchableOpacity>
                     </ComicHeader>
 
                     <ComicArrayArea>
