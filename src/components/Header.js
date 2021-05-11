@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Modal, View } from 'react-native';
 import styled from 'styled-components/native';
 
+import ModalComponent from './Modal';
 import MenuSquareIcon from '../assets/svg/menu-square.svg';
 import { white, defaultColor, gray100, background, gray500 } from '../globals';
 
@@ -66,8 +68,21 @@ const Button = styled.TouchableOpacity`
 
 
 export default () => {
+    const [modalVisible, setModalVisible] = useState(false);
+
     return(
         <Header>
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    setModalVisible(!modalVisible);
+                }}
+            >
+                <ModalComponent />
+            </Modal>
+
             <UserImgContainer 
                 style={{
                     shadowColor: "#000",
@@ -91,7 +106,7 @@ export default () => {
                 <UserName>Matheus Gomes</UserName>
             </Column>    
 
-            <Button>
+            <Button onPress={() => setModalVisible(true)}>
                 <MenuSquareIcon fill="#000" width={22} height={22} />
             </Button>     
         </Header>
