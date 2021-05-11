@@ -38,6 +38,7 @@ export const AuthorName = styled.Text`
 `;
 export const AuthorRating = styled.View`
     flex-direction: row;
+    align-items: center;
     margin-top: 2px;
 `;
 export const AuthorRatingText = styled.Text`
@@ -50,4 +51,35 @@ export const AuthorDescription = styled.Text`
     margin-top: 25px;
     font-size: 16px;
     color: ${gray500};
+`;
+
+
+export const InfoArea = styled.View`
+    flex-direction: row;
+    margin-top: 20px;
+`;
+export const InfoColumn = styled.View`
+    width: 23%;
+`;
+export const InfoValue = styled.Text`
+    font-weight: bold;
+    font-size: 20px;
+`;
+export const InfoValueFor = styled.Text`
+    color: ${gray100};
+    font-size: 16px;
+    margin-top: 5px;
+`;
+export const InfoFollowButton = styled.TouchableOpacity`
+    background: ${defaultColor};
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    margin-left: auto;
+    width: 45%;
+    height: 54px;
+`;
+export const InfoFollowButtonText = styled.Text`
+    color: ${white};
+    font-size: 18px;
 `;

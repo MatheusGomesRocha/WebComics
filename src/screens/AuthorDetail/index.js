@@ -14,7 +14,14 @@ import {
     AuthorName,
     AuthorRating,
     AuthorRatingText,
-    AuthorDescription
+    AuthorDescription,
+
+    InfoArea,
+    InfoColumn,
+    InfoValue,
+    InfoValueFor,
+    InfoFollowButton,
+    InfoFollowButtonText
 } from './styles';
 
 export default () => {
@@ -22,10 +29,9 @@ export default () => {
 
     const {img, name} = route.params;
 
-    return(
-        <AuthorDetailContainer>
+    const HeaderComponent = () => {
+        return(
             <AuthorHeader>
-
                 <AuthorHeaderTop>
                     <AuthorImgContainer
                         style={{
@@ -55,6 +61,28 @@ export default () => {
                     John Ronald Reuel Tolkien, CBE was an korean writer poet, WWI veteran a First Korean Soldier to fight on America.
                 </AuthorDescription>
             </AuthorHeader>
+        )
+    }
+
+    return(
+        <AuthorDetailContainer>
+            <HeaderComponent />
+
+            <InfoArea>
+                <InfoColumn>
+                    <InfoValue>14</InfoValue>
+                    <InfoValueFor>Book</InfoValueFor>
+                </InfoColumn>
+
+                <InfoColumn>
+                    <InfoValue>1.147</InfoValue>
+                    <InfoValueFor>Followers</InfoValueFor>
+                </InfoColumn>
+
+                <InfoFollowButton>
+                    <InfoFollowButtonText>Follow</InfoFollowButtonText>
+                </InfoFollowButton>
+            </InfoArea>
         </AuthorDetailContainer>
     )
 }
