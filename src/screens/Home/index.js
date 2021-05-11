@@ -26,7 +26,6 @@ import {
 
     AuthorArea,
     AuthorItem,
-    AuthorItemImgContainer,
     AuthorItemImg,
     AuthorItemName
 } from './styles';
@@ -100,21 +99,7 @@ export default () => {
                     <ScrollView contentContainerStyle={{paddingHorizontal: 10}} horizontal={true}>
                         {topAuthors.map((item, k) => (
                             <AuthorItem key={k} onPress={() => navigationAuthor(item.img, item.name)}>
-                                <AuthorItemImgContainer
-                                    style={{
-                                        shadowColor: "#000",
-                                        shadowOffset: {
-                                            width: 0,
-                                            height: 3,
-                                        },
-                                        shadowOpacity: 0.27,
-                                        shadowRadius: 4.65,
-                                        elevation: 6
-                                    }}
-                                >
                                     <AuthorItemImg source={item.img} />
-                                </AuthorItemImgContainer>
-
                                 <AuthorItemName numberOfLines={1}>{item.name}</AuthorItemName>
                             </AuthorItem>
                         ))}

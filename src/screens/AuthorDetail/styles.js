@@ -4,7 +4,6 @@ import { background, white, defaultColor, gray500, gray100 } from '../../globals
 export const AuthorDetailContainer = styled.SafeAreaView`
     flex: 1;
     background: ${white};
-    padding: 0 20px;
 `;
 
 export const AuthorHeader = styled.View`
@@ -19,14 +18,14 @@ export const AuthorImgContainer = styled.View`
     background: ${white};
     align-items: center;
     justify-content: center;
-    width: 86px;
-    height: 86px;
-    border-radius: 43px;
+    width: 96px;
+    height: 96px;
+    border-radius: 48px;
 `;
 export const AuthorImg = styled.Image`
-    width: 78px;
-    height: 78px;
-    border-radius: 39px;
+    width: 90px;
+    height: 90px;
+    border-radius: 45px;
 `;
 export const AuthorColumn = styled.View`
     justify-content: center;
@@ -86,7 +85,7 @@ export const InfoFollowButtonText = styled.Text`
 
 
 export const ComicArea = styled.View`
-    margin-top: 50px;
+    margin-top: 40px;
 `;
 export const ComicHeader = styled.View`
     flex-direction: row;
@@ -94,7 +93,7 @@ export const ComicHeader = styled.View`
     justify-content: space-between;
 `;
 export const ComicHeaderTitle = styled.Text`
-    font-size: 16px;
+    font-size: 18px;
 `;
 export const ComicArrayArea = styled.View`
     flex-direction: row;

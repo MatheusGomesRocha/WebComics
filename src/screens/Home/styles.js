@@ -75,18 +75,10 @@ export const AuthorItem = styled.TouchableOpacity`
     margin: 0 10px;
     align-items: center;
 `;
-export const AuthorItemImgContainer = styled.View`
-    background: ${white};
-    align-items: center;
-    justify-content: center;
-    width: 81px;
-    height: 81px;
-    border-radius: 50px;
-`;
 export const AuthorItemImg = styled.Image`
-    width: 75px;;
-    height: 75px;;
-    border-radius: 40px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
 `;
 export const AuthorItemName = styled.Text`
     font-weight: bold;

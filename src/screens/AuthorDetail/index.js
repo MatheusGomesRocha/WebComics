@@ -51,7 +51,7 @@ export default () => {
     useLayoutEffect(() => {
         navigation.setOptions({
           headerRight: () => (
-            <TouchableOpacity style={{marginRight: 15}}>
+            <TouchableOpacity style={{marginRight: 20}}>
                 <MoreIcon fill="#666" width={22} height={18} />
             </TouchableOpacity>
           ),
@@ -95,7 +95,7 @@ export default () => {
 
     return(
         <AuthorDetailContainer>
-            <ScrollView>
+            <ScrollView contentContainerStyle={{paddingHorizontal: 20}}>
                 <HeaderComponent />
 
                 <InfoArea>
