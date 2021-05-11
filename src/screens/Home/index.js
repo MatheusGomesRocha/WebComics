@@ -1,10 +1,12 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import SearchIcon from '../../assets/svg/search.svg';
 import AdjustIcon from '../../assets/svg/adjust.svg';
 import MoreIcon from '../../assets/svg/more.svg';
 import ContinueReading from '../../components/ContinueReading';
+import Header from '../../components/Header';
 
 import {
     HomeContainer,
@@ -23,7 +25,6 @@ import {
     TrendingComicsItemAuthor,
 
     AuthorArea,
-    DivLineAbsolute,
     AuthorItem,
     AuthorItemImgContainer,
     AuthorItemImg,
@@ -50,9 +51,17 @@ const topAuthors = [
 ]
 
 export default () => {
+    const navigation = useNavigation();
+
+    function navigationAuthor (img, name) {
+        navigation.navigate('authordetail', {img: img, name: name});
+    }
+
     return(
         <HomeContainer>
             <ScrollView>
+                <Header />
+
                 <SearchArea>
                     <SearchIcon fill="#000" width={22} height={18} />
                     <SearchInput placeholderTextColor="#666" placeholder="Search Comic..." />
@@ -90,7 +99,7 @@ export default () => {
 
                     <ScrollView contentContainerStyle={{paddingHorizontal: 10}} horizontal={true}>
                         {topAuthors.map((item, k) => (
-                            <AuthorItem key={k}>
+                            <AuthorItem key={k} onPress={() => navigationAuthor(item.img, item.name)}>
                                 <AuthorItemImgContainer
                                     style={{
                                         shadowColor: "#000",
