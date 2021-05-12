@@ -1,65 +1,38 @@
 import React, { useContext } from "react";
-import styled from 'styled-components/native';
 import { BlurView } from "@react-native-community/blur";
 
 import MenuSquareIcon from '../assets/svg/menu-square.svg';
 import AngleDownIcon from '../assets/svg/angle-down.svg';
-import { white, background, gray500, gray100 } from "../globals";
+import PinIcon from '../assets/svg/pin.svg';
 import { HeaderModalContext } from "../contexts/HeaderModalContext";
 
-const ModalContainer = styled.View`
-  flex: 1;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-  border-radius: 20px;
-`;
-const MinimizeButton = styled.TouchableOpacity`
-  background: #000;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  right: 30px;
-  top: 30px;
-  width: 56px;
-  height: 56px;
-  border-radius: 30px;
-  margin-left: auto;
-  border: 1px solid #efefef;
-`;
-const ModalArea = styled.View`
-  background: rgba(255, 255, 255, 0.92);
-  width: 90%;
-  height: 80%;
-  border-radius: 30px;
-  margin-bottom: 20px;
-  padding: 20px 10px;
-`;
+import {
+  ModalContainer,
+  MinimizeButton,
 
-const HeaderUser = styled.TouchableOpacity`
-  flex-direction: row;
-  align-items: center;
-  border: 1px solid ${gray100};
-  border-radius: 30px;
-  padding: 20px 15px;
-`;
-const UserImg = styled.Image`
-  width: 50px;
-  height: 50px;
-  border-radius: 25px;
-`;
-const HeaderColumn = styled.View`
-  margin-left: 5px;
-  width: 70%;
-`;
-const UserName = styled.Text`
-  font-weight: bold;
-  font-size: 20px;
-`;
-const UserEmail = styled.Text`
-  color: ${gray100};
-  font-size: 12px;
-`;
+  ModalArea,
+  HeaderUser,
+  UserImg,
+  HeaderColumn,
+  UserName,
+  UserEmail,
+
+  ButtonsArea,
+  ButtonItem,
+  ButtonTitle
+} from './styles';
+
+
+const buttonsArray = [
+  {id: 1, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
+  {id: 2, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
+  {id: 3, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
+  {id: 4, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
+  {id: 5, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
+  {id: 6, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
+  {id: 7, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
+  {id: 8, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
+];
 
 export default () => {
   const {showModal} = useContext(HeaderModalContext);
@@ -88,6 +61,15 @@ export default () => {
 
             <AngleDownIcon style={{marginLeft: 'auto'}} fill="#000" height={18} width={18} />
           </HeaderUser>
+
+          <ButtonsArea>
+            {buttonsArray.map((item, k) => (
+              <ButtonItem key={k}>
+                <item.icon fill="#000" height={20} width={20} />
+                <ButtonTitle>{item.title}</ButtonTitle>
+              </ButtonItem>
+            ))}
+          </ButtonsArea>
         </ModalArea>
     </ModalContainer>
   );
