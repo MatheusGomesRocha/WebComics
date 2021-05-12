@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Modal, View } from 'react-native';
 import styled from 'styled-components/native';
 
 import ModalComponent from './Modal';
 import MenuSquareIcon from '../assets/svg/menu-square.svg';
 import { white, defaultColor, gray100, background, gray500 } from '../globals';
+import { HeaderModalContext } from '../contexts/HeaderModalContext';
 
 const Header = styled.View`
     background: ${white};
@@ -68,7 +69,7 @@ const Button = styled.TouchableOpacity`
 
 
 export default () => {
-    const [modalVisible, setModalVisible] = useState(false);
+    const {modalVisible, showModal} = useContext(HeaderModalContext);
 
     return(
         <Header>
@@ -77,7 +78,7 @@ export default () => {
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => {
-                    setModalVisible(!modalVisible);
+                    showModal(!modalVisible);
                 }}
             >
                 <ModalComponent />
@@ -106,7 +107,7 @@ export default () => {
                 <UserName>Matheus Gomes</UserName>
             </Column>    
 
-            <Button onPress={() => setModalVisible(true)}>
+            <Button onPress={() => showModal(true)}>
                 <MenuSquareIcon fill="#000" width={22} height={22} />
             </Button>     
         </Header>
