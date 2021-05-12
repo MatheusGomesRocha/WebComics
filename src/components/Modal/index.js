@@ -50,7 +50,7 @@ export default () => {
 
   function buttonPressed(id) {
     setButtonClicked(id);
-    navigation.navigate('explore');
+    navigation.navigate('favorite');
     showModal(false);
   }
 

@@ -80,6 +80,6 @@ export const ComicsItemRelease = styled.View`
     align-items: center;
 `;
 export const ComicsItemReleaseText = styled.Text`
-    margin-left: 10px;
     color: ${gray500};
+    margin-left: 10px;
 `;
