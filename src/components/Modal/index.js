@@ -59,7 +59,18 @@ export default () => {
         </MinimizeButton>
 
         <ModalArea>
-          <HeaderUser>
+          <HeaderUser
+              style={{
+                shadowColor: "#000",
+                shadowOffset: {
+                    width: 0,
+                    height: 3,
+                },
+                shadowOpacity: 0.27,
+                shadowRadius: 4.65,
+                elevation: 6
+            }}
+          >
             <UserImg source={require('../../assets/img/user.jpeg')}/>
 
             <HeaderColumn>

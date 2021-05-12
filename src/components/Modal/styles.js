@@ -34,9 +34,9 @@ export const ModalArea = styled.View`
 export const HeaderUser = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
-  border: 1px solid ${gray100};
   border-radius: 30px;
   padding: 15px;
+  background: ${white};
 `;
 export const UserImg = styled.Image`
   width: 50px;
@@ -58,6 +58,7 @@ export const UserEmail = styled.Text`
 
 
 export const ButtonsArea = styled.View`
+  margin-top: 10px;
 `;
 export const ButtonItem = styled.TouchableOpacity`
     background: ${props=>props.background || 'transparent'};
