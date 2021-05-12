@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { BlurView } from "@react-native-community/blur";
+import { useNavigation } from '@react-navigation/native';
 
 import MenuSquareIcon from '../../assets/svg/menu-square.svg';
 import AngleDownIcon from '../../assets/svg/angle-down.svg';
@@ -45,6 +46,13 @@ export default () => {
   const [buttonClicked, setButtonClicked] = useState(1);
   const {showModal} = useContext(HeaderModalContext);
 
+  const navigation = useNavigation();
+
+  function buttonPressed(id) {
+    setButtonClicked(id);
+    navigation.navigate('explore');
+  }
+
   return (
     <ModalContainer>
         <BlurView
@@ -83,7 +91,7 @@ export default () => {
 
           <ButtonsArea>
             {buttonsArray.map((item, k) => (
-              <ButtonItem onPress={() => setButtonClicked(item.id)} background={buttonClicked === item.id && '#181516'} key={k}>
+              <ButtonItem onPress={() => buttonPressed(item.id)} background={buttonClicked === item.id && '#181516'} key={k}>
                 <item.icon fill={buttonClicked === item.id ? '#fff' : '#181516'} height={22} width={22} />
                 <ButtonTitle color={buttonClicked === item.id && '#fff'}>{item.title}</ButtonTitle>
               </ButtonItem>
