@@ -1,10 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { BlurView } from "@react-native-community/blur";
 
-import MenuSquareIcon from '../assets/svg/menu-square.svg';
-import AngleDownIcon from '../assets/svg/angle-down.svg';
-import PinIcon from '../assets/svg/pin.svg';
-import { HeaderModalContext } from "../contexts/HeaderModalContext";
+import MenuSquareIcon from '../../assets/svg/menu-square.svg';
+import AngleDownIcon from '../../assets/svg/angle-down.svg';
+import PinIcon from '../../assets/svg/pin.svg';
+import HeartIcon from '../../assets/svg/heart.svg';
+import UserCircleIcon from '../../assets/svg/user_circle.svg';
+import BellIcon from '../../assets/svg/bell.svg';
+import SunIcon from '../../assets/svg/sun.svg';
+import GiftIcon from '../../assets/svg/gift.svg';
+import ConfigIcon from '../../assets/svg/config.svg';
+import LogoutIcon from '../../assets/svg/logout.svg';
+import { HeaderModalContext } from "../../contexts/HeaderModalContext";
 
 import {
   ModalContainer,
@@ -25,16 +32,17 @@ import {
 
 const buttonsArray = [
   {id: 1, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
-  {id: 2, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
-  {id: 3, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
-  {id: 4, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
-  {id: 5, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
-  {id: 6, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
-  {id: 7, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
-  {id: 8, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
+  {id: 2, title: 'Favorites', navigation: 'favorites', icon: HeartIcon},
+  {id: 3, title: 'Author', navigation: 'author', icon: UserCircleIcon},
+  {id: 4, title: 'Notifications', navigation: 'notifications', icon: BellIcon},
+  {id: 5, title: 'Night Mode', icon: SunIcon},
+  {id: 6, title: 'Donate', navigation: 'donate', icon: GiftIcon},
+  {id: 7, title: 'Settings', navigation: 'settings', icon: ConfigIcon},
+  {id: 8, title: 'Sign Out', icon: LogoutIcon},
 ];
 
 export default () => {
+  const [buttonClicked, setButtonClicked] = useState(1);
   const {showModal} = useContext(HeaderModalContext);
 
   return (
@@ -52,7 +60,7 @@ export default () => {
 
         <ModalArea>
           <HeaderUser>
-            <UserImg source={require('../assets/img/user.jpeg')}/>
+            <UserImg source={require('../../assets/img/user.jpeg')}/>
 
             <HeaderColumn>
               <UserName>Matheus Gomes</UserName>
@@ -64,9 +72,9 @@ export default () => {
 
           <ButtonsArea>
             {buttonsArray.map((item, k) => (
-              <ButtonItem key={k}>
-                <item.icon fill="#000" height={20} width={20} />
-                <ButtonTitle>{item.title}</ButtonTitle>
+              <ButtonItem onPress={() => setButtonClicked(item.id)} background={buttonClicked === item.id && '#181516'} key={k}>
+                <item.icon fill={buttonClicked === item.id ? '#fff' : '#181516'} height={22} width={22} />
+                <ButtonTitle color={buttonClicked === item.id && '#fff'}>{item.title}</ButtonTitle>
               </ButtonItem>
             ))}
           </ButtonsArea>

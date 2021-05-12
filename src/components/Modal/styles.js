@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { white, background, gray500, gray100 } from "../globals";
+import { black, white, background, gray500, gray100 } from "../../globals";
 
 export const ModalContainer = styled.View`
   flex: 1;
@@ -24,10 +24,11 @@ export const MinimizeButton = styled.TouchableOpacity`
 export const ModalArea = styled.View`
   background: rgba(255, 255, 255, 0.92);
   width: 90%;
-  height: 80%;
+  height: 85%;
   border-radius: 30px;
   margin-bottom: 20px;
-  padding: 20px 10px;
+  padding: 20px 15px;
+  border: 1px solid #efefef;
 `;
 
 export const HeaderUser = styled.TouchableOpacity`
@@ -35,7 +36,7 @@ export const HeaderUser = styled.TouchableOpacity`
   align-items: center;
   border: 1px solid ${gray100};
   border-radius: 30px;
-  padding: 20px 15px;
+  padding: 15px;
 `;
 export const UserImg = styled.Image`
   width: 50px;
@@ -55,6 +56,21 @@ export const UserEmail = styled.Text`
   font-size: 12px;
 `;
 
-export const ButtonsArea = styled.View``;
-export const ButtonsItem = styled.TouchableOpacity``
-export const ButtonsTitle = styled.Text``
+
+export const ButtonsArea = styled.View`
+`;
+export const ButtonItem = styled.TouchableOpacity`
+    background: ${props=>props.background || 'transparent'};
+    flex-direction: row;
+    align-items: center;
+    height: 58px;
+    width: 100%;
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 0 20px;
+`;
+export const ButtonTitle = styled.Text`
+    color: ${props=>props.color || black};
+    margin-left: 20px;
+    font-size: 16px;
+`;
