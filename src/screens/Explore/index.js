@@ -51,9 +51,8 @@ export default () => {
 
     return(
         <ExploreContainer>
-            <Header />
-
             <ScrollView>
+                <Header />  
                 
                 <FilterArea>
                     <ScrollView contentContainerStyle={{paddingHorizontal: 10}} horizontal={true}>

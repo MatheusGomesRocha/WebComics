@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollView, TouchableOpacity, View } from 'react-native';
 
 import Header from '../../components/Header';
 import AngleDownIcon from '../../assets/svg/angle-down.svg';
@@ -33,35 +34,41 @@ const comicsArray = [
 export default () => {
     return(
         <FavoriteContainer>
-            <Header />
+            <ScrollView contentContainerStyle={{paddingHorizontal: 20, paddingBottom: 20}}>
+                <Header />
 
-            <FilterArea>
-                <FilterValue>All Comics</FilterValue>
-                <AngleDownIcon fill="#000" width={22} height={18} />
-            </FilterArea>
+                <FilterArea>
+                    <FilterValue>All Comics</FilterValue>
+                    <AngleDownIcon fill="#000" width={22} height={18} />
+                </FilterArea>
 
-            <ComicsArea>
-                {comicsArray.map((item, k) => (
-                    <ComicsItem key={k}>
-                        <ComicsImg source={item.img} />
+                <ComicsArea>
+                    {comicsArray.map((item, k) => (
+                        <ComicsItem key={k}>
+                            <ComicsImg source={item.img} />
 
-                        <ComicsHeader>
-                            <ComicsColumn>
-                                <ComicsName>{item.name}</ComicsName>
-                                <ComicsAuthor>By {item.author}</ComicsAuthor>
-                            </ComicsColumn>
+                            <View style={{flexDirection: 'column', justifyContent: 'space-between', flex: 1}}>
+                                <ComicsHeader>
+                                    <ComicsColumn>
+                                        <ComicsName numberOfLines={1}>{item.name}</ComicsName>
+                                        <ComicsAuthor>By {item.author}</ComicsAuthor>
+                                    </ComicsColumn>
 
-                            <DownloadIcon fill={item.downloaded ? '#ff5e62' : '#000'} width={22} height={18} /> 
-                        </ComicsHeader>
+                                    <TouchableOpacity>
+                                        <DownloadIcon style={{marginLeft: 'auto'}} fill={item.downloaded ? '#ff5e62' : '#000'} width={24} height={20} /> 
+                                    </TouchableOpacity>
+                                </ComicsHeader>
 
-                        <ComicsFooter>
-                            <ComicsFooterText>Next Chapter {item.nextChapter}</ComicsFooterText>
-                            <ComicsFooterText>{item.views} View</ComicsFooterText>
-                        </ComicsFooter>
-                    </ComicsItem>
-                ))}
-            </ComicsArea>
+                                <ComicsFooter>
+                                    <ComicsFooterText>Next Chapter {item.nextChapter}</ComicsFooterText>
+                                    <ComicsFooterText>{item.views} View</ComicsFooterText>
+                                </ComicsFooter>
+                            </View>
+                        </ComicsItem>
+                    ))}
+                </ComicsArea>
 
+            </ScrollView>
         </FavoriteContainer>
     )
 }
