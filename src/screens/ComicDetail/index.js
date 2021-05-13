@@ -115,7 +115,7 @@ export default () => {
                             <ComicAuthorName>by Shrimp</ComicAuthorName>
                         </ComicAuthorColumn>
 
-                        <ComicReadButton>
+                        <ComicReadButton onPress={() => navigation.navigate('comicread')}>
                             <ComicReadButtonText>Read Now</ComicReadButtonText>
                         </ComicReadButton>
                     </ComicAuthor>
