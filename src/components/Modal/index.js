@@ -33,7 +33,7 @@ import {
 
 const buttonsArray = [
   {id: 1, title: 'Explore Comic', navigation: 'explore', icon: PinIcon},
-  {id: 2, title: 'Favorites', navigation: 'favorites', icon: HeartIcon},
+  {id: 2, title: 'Favorites', navigation: 'favorite', icon: HeartIcon},
   {id: 3, title: 'Author', navigation: 'author', icon: UserCircleIcon},
   {id: 4, title: 'Notifications', navigation: 'notifications', icon: BellIcon},
   {id: 5, title: 'Night Mode', icon: SunIcon},
@@ -48,10 +48,13 @@ export default () => {
 
   const navigation = useNavigation();
 
-  function buttonPressed(id) {
+  function buttonPressed(id, screen) {
     setButtonClicked(id);
-    navigation.navigate('favorite');
     showModal(false);
+
+    if(screen) {
+      navigation.navigate(screen);
+    }
   }
 
   return (
@@ -92,7 +95,7 @@ export default () => {
 
           <ButtonsArea>
             {buttonsArray.map((item, k) => (
-              <ButtonItem onPress={() => buttonPressed(item.id)} background={buttonClicked === item.id && '#181516'} key={k}>
+              <ButtonItem onPress={() => buttonPressed(item.id, item.navigation)} background={buttonClicked === item.id && '#181516'} key={k}>
                 <item.icon fill={buttonClicked === item.id ? '#fff' : '#181516'} height={22} width={22} />
                 <ButtonTitle color={buttonClicked === item.id && '#fff'}>{item.title}</ButtonTitle>
               </ButtonItem>
