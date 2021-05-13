@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { ScrollView } from 'react-native';
 
 import Header from '../../components/Header';
@@ -49,6 +50,8 @@ const comicsArray = [
 export default () => {
     const [filter, setFilter] = useState(1);
 
+    const navigation = useNavigation();
+
     return(
         <ExploreContainer>
             <ScrollView>
@@ -66,7 +69,7 @@ export default () => {
 
                 <ComicsArea>
                     {comicsArray.map((item, k) => (
-                        <ComicsItem key={k}>
+                        <ComicsItem onPress={() => navigation.navigate('comicdetail')} key={k}>
                             <ComicsBackgroundImg imageStyle={{ borderRadius: 25}} source={item.img}>
                                 <ComicsChapter>
                                     <ComicsChapterText>Chapter {item.lastChapter}</ComicsChapterText>

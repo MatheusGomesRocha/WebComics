@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { ScrollView, TouchableOpacity, View } from 'react-native';
 
 import Header from '../../components/Header';
@@ -32,6 +33,8 @@ const comicsArray = [
 ];
 
 export default () => {
+    const navigation = useNavigation();
+
     return(
         <FavoriteContainer>
             <ScrollView contentContainerStyle={{paddingHorizontal: 20, paddingBottom: 20}}>
@@ -44,7 +47,7 @@ export default () => {
 
                 <ComicsArea>
                     {comicsArray.map((item, k) => (
-                        <ComicsItem key={k}>
+                        <ComicsItem onPress={() => navigation.navigate('comicdetail')} key={k}>
                             <ComicsImg source={item.img} />
 
                             <View style={{flexDirection: 'column', justifyContent: 'space-between', flex: 1}}>

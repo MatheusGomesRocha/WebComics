@@ -78,7 +78,7 @@ export default () => {
                     
                     <ScrollView contentContainerStyle={{paddingHorizontal: 10}} horizontal={true}>
                         {trendingComicsArray.map((item, k) => (
-                            <TrendingComicsItem key={k}>
+                            <TrendingComicsItem onPress={() => navigation.navigate('comicdetail')} key={k}>
                                 <TrendingComicsItemImg source={item.img} />
                                 <TrendingComicsItemName numberOfLines={1}>{item.title}</TrendingComicsItemName>
                                 <TrendingComicsItemAuthor numberOfLines={1}>by {item.author}</TrendingComicsItemAuthor>
