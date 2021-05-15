@@ -21,7 +21,7 @@ Projeto feito para treinar o design.
 
 ---
 
-## **Projeto**
+## **Screenshots**
 
 - _Home, Explore e Fovorite_
 
@@ -49,7 +49,7 @@ Projeto feito para treinar o design.
 
 ---
 
-## Meta
+## Author
 
 - Matheus Gomes
 - Email - matheusgomes192@hotmail.com
